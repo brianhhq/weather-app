@@ -31,3 +31,13 @@ jobs:
         name: brianhhq/weather-app
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Notify
+      uses: innocarpe/actions-slack@v1
+      with:
+        status: ${{ job.status }} # Required
+        success_text: 'Step Succeeded 🚀' # Optional
+        failure_text: 'Step Failed 😱' # Optional
+        cancelled_text: 'Step Cancelled ⚠️' # Optional
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }} # Required
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Required
