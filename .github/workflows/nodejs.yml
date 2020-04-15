@@ -31,12 +31,6 @@ jobs:
         name: brianhhq/weather-app
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-    - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "brianhhq-weather-app" #Must be unique in Heroku
-        heroku_email: "brian_hhq@hotmail.com"
-        usedocker: true #OPTIONAL and DEFAULT - false
     - name: Notify
       uses: innocarpe/actions-slack@v1
       with:
